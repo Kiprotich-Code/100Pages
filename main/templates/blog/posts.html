@@ -3,9 +3,11 @@
 {% block content %}
 {% if posts %}
 {% for post in posts %}
-    <ul>
-        <li>{{post.title}}</li>
-    </ul>
+    <div class="container">
+        <h3>{{post.title}}</h3>
+        <p>By {{post.author}}</p><br>
+        <p>{{post.post}}</p>
+    </div>
 {% endfor %}
 
 {% else %}

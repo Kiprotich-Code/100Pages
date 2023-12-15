@@ -29,4 +29,4 @@ def add_posts(request):
         form = AddPostForm()
 
     context = {'form': form}    
-    return render(request, 'blog/add_form.html', context)
+    return render(request, 'blog/add_post.html', context)
