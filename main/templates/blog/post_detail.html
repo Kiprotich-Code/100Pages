@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block content %}
-<div class="container p-4 bg-outline-secondary">
+<div class="container p-md-4 bg-outline-secondary">
     <img src="{% static 'images/img.jpeg'%}" class="card-img-top" alt="image" style="height: 200px; margin: 5px auto;">
     <div class="card-body">
-      <h5 class="card-title">{{post.title}}</h5>
-      <h5 class="card-title">{{post.subtitle}}</h5>
-      <h5 class="card-title">By {{post.author}}</h5>
-      <p class="card-text">{{post.post}}</p>
-      <a href="#" class="btn btn-primary">Back Home</a>
+      <h5 class="card-title">{{posts.title}}</h5>
+      <h5 class="card-title">{{posts.subtitle}}</h5>
+      <h5 class="card-title">By {{posts.author}}</h5>
+      <p class="card-text">{{posts.post}}</p>
+      <a class="btn btn-primary" href="{%url 'posts'%}">Back Home</a>
     </div>
 </div>
 {% endblock %}

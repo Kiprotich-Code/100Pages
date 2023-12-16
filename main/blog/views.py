@@ -35,7 +35,5 @@ def add_posts(request):
 # Detail view for post 
 def post_detail(request, id):
     context = {}
-    posts = Posts.objects.get(pk=id)
-
-    context['posts'] = posts
+    context['posts'] = Posts.objects.get(id = id)
     return render(request, 'blog/post_detail.html', context)
