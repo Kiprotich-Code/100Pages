@@ -2,21 +2,14 @@
 {% load static %}
 
 {% block content %}
-{% if posts %}
-{% for post in posts %}
-<div class="card w-50 mx-auto my-2">
+<div class="container p-4 bg-outline-secondary">
     <img src="{% static 'images/img.jpeg'%}" class="card-img-top" alt="image" style="height: 200px; margin: 5px auto;">
     <div class="card-body">
       <h5 class="card-title">{{post.title}}</h5>
-      <h5 class="card-title">{{post.id}}</h5>
+      <h5 class="card-title">{{post.subtitle}}</h5>
       <h5 class="card-title">By {{post.author}}</h5>
       <p class="card-text">{{post.post}}</p>
-      <a href="{% url 'post_detail' post.id %}" class="btn btn-primary">Read More</a>
+      <a href="#" class="btn btn-primary">Back Home</a>
     </div>
-  </div>
-{% endfor %}
-
-{% else %}
-<h3>Posts not available</h3>
-{% endif %}
+</div>
 {% endblock %}

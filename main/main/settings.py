@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     # INSTALLED_APPS 
     'blog',
+    'django_summernote',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static/'),
 ]
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'

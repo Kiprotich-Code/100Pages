@@ -30,3 +30,12 @@ def add_posts(request):
 
     context = {'form': form}    
     return render(request, 'blog/add_post.html', context)
+
+
+# Detail view for post 
+def post_detail(request, id):
+    context = {}
+    posts = Posts.objects.get(pk=id)
+
+    context['posts'] = posts
+    return render(request, 'blog/post_detail.html', context)
