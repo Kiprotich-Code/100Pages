@@ -10,7 +10,7 @@
       <h5 class="card-title">{{post.title}}</h5>
       <h5 class="card-title">{{post.id}}</h5>
       <h5 class="card-title">By {{post.author}}</h5>
-      <p class="card-text">{{post.post}}</p>
+      <p class="card-text">{{post.post | safe}}</p>
       <a href="{% url 'post_detail' post.id %}" class="btn btn-primary">Read More</a>
     </div>
   </div>

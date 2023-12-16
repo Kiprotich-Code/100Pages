@@ -4,7 +4,7 @@ from django_summernote.admin import SummernoteModelAdmin
 
 # Register your models here.
 class PostsAdmin(SummernoteModelAdmin):
-    summernote_fields = ('post',)
+    summernote_fields = '__all__'
 
 
 admin.site.register(Posts, PostsAdmin)
