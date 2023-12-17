@@ -13,7 +13,7 @@
 <body>
   <nav class="navbar navbar-expand-lg p-sm-2" style="background-color: #bd00d6;">
     <div class="container-fluid">
-      <a class="navbar-brand text-white" href="#">100Pages</a>
+      <a class="navbar-brand text-white" href="{% url 'home'%}">100Pages</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -30,7 +30,7 @@
               Join Us
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Signup</a></li>
+              <li><a class="dropdown-item" href="{% url 'signin'%}">Sigin</a></li>
               <li><a class="dropdown-item" href="#">Subscribe</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">Donate</a></li>
@@ -39,7 +39,7 @@
         </ul>
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-secondary" type="submit">Search</button>
+          <button class="btn btn-primary" type="submit">Search</button>
         </form>
       </div>
     </div>
