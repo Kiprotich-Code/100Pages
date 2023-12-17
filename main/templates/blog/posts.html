@@ -13,13 +13,28 @@
       <p class="small fw-lighter">By {{post.author}} </p>
       <hr>
       <a href="{% url 'post_detail' post.id%}" class="btn btn-outline-primary">Recite Poem</a>
+      <a href="{% url 'upvote_post' post.id%}" class="btn btn-outline-success">
+        {{post.upvotes}} <i class="bi bi-arrow-bar-up"></i>
+      </a>
+      <a href="{% url 'downvote_post' post.id%}" class="btn btn-outline-warning">
+        {{post.downvotes}} <i class="bi bi-arrow-bar-down"></i>
+      </a>
+      
     </div>
   </div>
 {% endfor %}
 </div>
 {% block sidebar %} {% include './sidebar.html' %} {% endblock sidebar %}
 
+
 {% else %}
-<h3>Posts not available</h3>
+<div class="card m-3 border-warning">
+  <h5 class="card-header">Warning ! </h5>
+<div class="card-body">
+  <p class="card-text"> There are no posts at the moment. If you have admin access, you can login and write something great to cheer us up. If you're not an admin, kindly check back later. In the meantime, contact us via the contact form so we can share the moment. </p>
+  <a href="#"
+     class="btn btn-outline-warning">Contact Us</a>
+</div>
+</div>
 {% endif %}
 {% endblock %}

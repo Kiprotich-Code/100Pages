@@ -1,5 +1,5 @@
 from django import forms
-from .models import Posts
+from .models import Posts, Comment
 from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 
 # Create forms here 
@@ -9,3 +9,8 @@ class AddPostForm(forms.ModelForm):
         model = Posts
         fields = ('title', 'author', 'post',)
 
+
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('name', 'email', 'body')

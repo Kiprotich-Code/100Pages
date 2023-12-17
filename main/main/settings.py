@@ -41,6 +41,8 @@ INSTALLED_APPS = [
 
     # INSTALLED_APPS 
     'blog',
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
 INSTALLED_APPS += ('django_summernote', )
 
@@ -134,3 +136,8 @@ STATICFILES_DIRS = [
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, '/media/')
+
+
+# Crispy 
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
