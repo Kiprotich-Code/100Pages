@@ -2,14 +2,16 @@
 {% load static %}
 
 {% block content %}
-<div class="container p-md-4 bg-outline-secondary">
-    <img src="{% static 'images/img.jpeg'%}" class="card-img-top" alt="image" style="height: 200px; margin: 5px auto;">
-    <div class="card-body">
-      <h5 class="card-title">{{posts.title}}</h5>
-      <h5 class="card-title">{{posts.subtitle}}</h5>
-      <h5 class="card-title">By {{posts.author}}</h5>
-      <p class="card-text">{{posts.post}}</p>
-      <a class="btn btn-primary" href="{%url 'posts'%}">Back Home</a>
-    </div>
+<div class="container">
+  <div class="py-2">
+    <h1 class="fw-light">{{posts.title}}</h1>
+    <h5 class="fw-lighter">20mins ago | {{posts.author}} | 5 Comments</h5>
+  </div>
+  <img src="{% static 'images/img.jpeg'%}" class="card-img-top" alt="image" style="height: 400px; margin: 5px auto;">
+  <div class="my-3">
+    <p>{{posts.post | safe}}</p>
+  </div>
 </div>
+
+
 {% endblock %}

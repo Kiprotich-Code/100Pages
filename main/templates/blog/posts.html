@@ -3,18 +3,21 @@
 
 {% block content %}
 {% if posts %}
+<div class="row">
+<div class="col-md-8">
 {% for post in posts %}
-<div class="card col-md-8 mx-md-5 my-md-2 m-2 border-warning">
+<div class="card m-3 border-warning">
     <!-- <img src="{% static 'images/img.jpeg'%}" class="card-img-top" alt="image" style="height: 200px; margin: 5px auto;"> -->
     <div class="card-body">
       <h5 class="card-title">{{post.title}} </h5>
-      <p class="small fst-italic">By {{post.author}} </p>
+      <p class="small fw-lighter">By {{post.author}} </p>
       <hr>
-      <p class="card-text">{{post.post | safe}}</p>
-      <a href="{% url 'post_detail' post.id%}" class="btn btn-primary">Read More</a>
+      <a href="{% url 'post_detail' post.id%}" class="btn btn-outline-primary">Recite Poem</a>
     </div>
   </div>
 {% endfor %}
+</div>
+{% block sidebar %} {% include './sidebar.html' %} {% endblock sidebar %}
 
 {% else %}
 <h3>Posts not available</h3>
