@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'blog',
     'crispy_forms',
     'crispy_bootstrap5',
+    'users',
 ]
 INSTALLED_APPS += ('django_summernote', )
 
