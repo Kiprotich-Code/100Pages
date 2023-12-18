@@ -3,9 +3,6 @@ from .models import Posts
 from .forms import AddPostForm, CommentForm
 
 # Create your views here.
-def home(request):
-    return render(request, 'index.html')
-
 # Listview for posts 
 def post_list(request):
     posts = Posts.objects.all().order_by('-upvotes', 'downvotes')

@@ -30,7 +30,8 @@
               Join Us
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="{% url 'signin'%}">Sigin</a></li>
+              <li><a class="dropdown-item" href="{% url 'login'%}">Sigin</a></li>
+              <li><a class="dropdown-item" href="{% url 'register'%}">Signup</a></li>
               <li><a class="dropdown-item" href="#">Subscribe</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="#">Donate</a></li>
@@ -49,9 +50,6 @@
     <div class="col header-col-1">
       <h2>Poetry</h2>
       <h5>©real_life_poetry</h5>
-    </div>
-    <div class="col p-md-5">
-      <img src="{% static 'images/drf.png'%}" alt="The Image">
     </div>
   </div>
   {% endblock %}

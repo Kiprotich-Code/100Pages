@@ -1,9 +1,13 @@
 {% extends '../index.html' %}
+{% load crispy_forms_filters %}
 
 {% block content %}
+<div class="w-50 m-md-auto p-3">
 <form action="" method="post">
     {% csrf_token %}
-    {{form.as_p }}
-    <input type="submit" value="Add Poem">
+    <h3 class="fw-lighter">Add Poem</h3>
+    {{form | crispy }}
+    <input type="submit" value="Add Poem" class="btn btn-outline-primary">
 </form>
+</div>
 {% endblock %}
