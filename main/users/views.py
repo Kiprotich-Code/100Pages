@@ -18,8 +18,7 @@ def login_user(request):
             return redirect('home')
 
         else:
-            messages.success(request, "Enter details and try again")
-            return render(request, "users/login.html", {})
+            raise ValueError('User is none')
 
     else: 
         return render(request, "users/login.html", {})
