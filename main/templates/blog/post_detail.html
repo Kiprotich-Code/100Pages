@@ -9,7 +9,7 @@
     <h1 class="fw-light">{{post.title}}</h1>
     <h5 class="fw-lighter">20mins ago | {{post.author}} | 5 Comments</h5>
   </div>
-  <img src="{% static 'images/img.jpeg'%}" class="card-img-top" alt="image" style="height: 400px; margin: 5px auto;">
+  <img src="{{post.avatar.url}}" alt="Default" style="height: 400px; width: 100%;">
   <div class="my-3">
     <p>{{post.post | safe}}</p>
   </div>

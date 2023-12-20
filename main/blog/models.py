@@ -6,6 +6,7 @@ class Posts(models.Model):
     title = models.CharField(max_length = 100)
     subtitle = models.CharField(max_length = 100)
     author = models.CharField(max_length = 100)
+    avatar = models.ImageField(default='default.jpeg',upload_to='profile_pics/')
     post = models.TextField()
     created_on = models.DateTimeField(auto_now=True)
     updated_on = models.DateTimeField(auto_now=True)

@@ -19,7 +19,7 @@ def post_list(request):
 
 def add_posts(request):
     if request.method == 'POST':
-        form = AddPostForm(request.POST)
+        form = AddPostForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('posts')

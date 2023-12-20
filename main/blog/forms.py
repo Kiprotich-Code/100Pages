@@ -7,7 +7,7 @@ class AddPostForm(forms.ModelForm):
     post = forms.CharField(widget=SummernoteWidget())
     class Meta:
         model = Posts
-        fields = ('title', 'author', 'post',)
+        fields = ('title', 'avatar', 'author', 'post',)
 
 
 class CommentForm(forms.ModelForm):
