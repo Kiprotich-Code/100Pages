@@ -13,13 +13,21 @@
       <p class="small fw-lighter">By {{post.author}} </p>
       <hr>
       <a href="{% url 'post_detail' post.id%}" class="btn btn-outline-primary">Recite Poem</a>
+      {% if user.is_authenticated %}
       <a href="{% url 'upvote_post' post.id%}" class="btn btn-outline-success">
         {{post.upvotes}} <i class="bi bi-arrow-bar-up"></i>
       </a>
       <a href="{% url 'downvote_post' post.id%}" class="btn btn-outline-warning">
         {{post.downvotes}} <i class="bi bi-arrow-bar-down"></i>
       </a>
-      
+      {% else %}
+      <a href="{% url 'login' %}" class="btn btn-outline-success">
+        {{post.upvotes}} <i class="bi bi-arrow-bar-up"></i>
+      </a>
+      <a href="{% url 'login' %}" class="btn btn-outline-warning">
+        {{post.downvotes}} <i class="bi bi-arrow-bar-down"></i>
+      </a>
+      {% endif %}
     </div>
   </div>
 {% endfor %}

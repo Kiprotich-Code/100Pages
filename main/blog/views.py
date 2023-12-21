@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Posts
+from .models import Posts, Comment
 from .forms import AddPostForm, CommentForm
+from django.contrib.auth.models import User
 
 # Create your views here.
 # Listview for posts 
@@ -21,7 +22,9 @@ def add_posts(request):
     if request.method == 'POST':
         form = AddPostForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
             return redirect('posts')
         
         else:
@@ -39,13 +42,15 @@ def post_detail(request, id):
     template_name = 'blog/post_detail.html'
     post = get_object_or_404(Posts, id=id)
     comments = post.comments.filter(active=True)
+    users = User.objects.all()
     new_comment = None # Posted Comment
     if request.method == 'POST':
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
             # Create a comment object but don't save it to the database 
             new_comment = comment_form.save(commit=False)
-            # Assign current post to the comment 
+            new_comment.commenter = request.user
+            # Assign current post to the comment
             new_comment.post = post
             # Save the comment to the database 
             new_comment.save()
@@ -53,6 +58,7 @@ def post_detail(request, id):
         comment_form = CommentForm()
 
     context = {
+        'users': users,
         'post': post,
         'comments': comments,
         'new_comment': new_comment,
