@@ -10,7 +10,7 @@
     <!-- <img src="{% static 'images/img.jpeg'%}" class="card-img-top" alt="image" style="height: 200px; margin: 5px auto;"> -->
     <div class="card-body">
       <h5 class="card-title">{{post.title}} </h5>
-      <p class="small fw-lighter">By {{post.author}} </p>
+      <p class="small fw-lighter">By <a href="{url 'view_profile' post.author.id}">{{post.author}}</a> </p>
       <hr>
       <a href="{% url 'post_detail' post.id%}" class="btn btn-outline-primary">Recite Poem</a>
       {% if user.is_authenticated %}
