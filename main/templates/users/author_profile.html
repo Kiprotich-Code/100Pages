@@ -1,0 +1,49 @@
+{% extends '../index.html'%}
+
+{% block content %}
+{% if author %}
+{% block profile_header %}
+<div class="content-section col-md-8 m-auto">
+  <div class="media text-center">
+    <img class="rounded-circle account-img p-2 m-2" src="{{ author.profile.dp.url }}" />
+    <div class="media-body">
+      <h2 class="account-heading"> {{ author.profile.stage_name }}</h2>
+      <p class="text-secondary">@{{author.username}} </p>
+      <p class="text-secondary">500 Followers | 250 Following | Joined: 12-09-2023</p>
+    </div>
+    <div>
+      <ul class="nav justify-content-around overflow-hidden">
+        <li class="nav-item">
+          <a class="nav-link text-dark" aria-current="page" href="">Info</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="#posts">Posts</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link text-dark" href="{% url 'profile_upvotes' author.id %}">Upvotes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-dark" href="{% url 'profile_downvotes' author.id%}">Downvotes</a> -->
+        </li>
+      </ul>
+      <hr>
+    </div>
+  </div>
+  {% endblock %}
+
+  {% block info %}
+  <div id="info" class="section-content">
+    <h2 class="small fw-light">Personal Info</h2>
+    <p class="card-text">{{author.profile.bio}}</p>
+  </div>
+
+  <div id="posts">
+    
+  </div>
+  {% endblock %}
+  {% else %}
+    <h3>You can't view author</h3>
+  {% endif %}
+</div>
+{% endblock %}
+

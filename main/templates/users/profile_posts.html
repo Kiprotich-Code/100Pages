@@ -1,5 +1,25 @@
 {% extends './view_profile.html'%}
 
 {% block info %}
-    This is the posts page.
+{% if my_posts %}
+{% for post in my_posts %}
+<div class="card m-3 border-warning w-100">
+    <div class="card-body">
+      <h5 class="card-title">{{post.title}} </h5>
+      <hr>
+      <a href="{% url 'post_detail' post.id%}" class="btn btn-outline-primary">Recite Poem</a>
+    </div>
+  </div>
+{% endfor %}
+
+
+{% else %}
+<div class="card m-3 border-warning">
+  <h5 class="card-header">Warning ! </h5>
+<div class="card-body">
+  <p class="card-text"> There are no posts at the moment. If you have admin access, you can login and write something great to cheer us up. If you're not an admin, kindly check back later. In the meantime, contact us via the contact form so we can share the moment. </p>
+  <a href="#"
+     class="btn btn-outline-warning">Contact Us</a>
+</div>
+{% endif %}
 {% endblock %}

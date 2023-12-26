@@ -22,7 +22,7 @@
     <p class="font-weight-bold">
       {% for user in users %}
       {% if user.id == comment.commenter.id %}
-      <a href="{% url 'view_profile' user.id %}" class="text-decoration-none"> {{ comment.commenter }}</a> | 
+      <a href="{% url 'view_profile' id=user.id %}" class="text-decoration-none"> {{ comment.commenter }}</a> | 
       {% endif %}
       {% endfor %}
       <span class=" text-muted font-weight-normal">
@@ -46,7 +46,7 @@
       Your comment is awaiting moderation
     </div>
     {% else %}
-    <h3>Leave a comment</h3>
+    <h3 class="mt-3">Leave a comment</h3>
     <form method="post" style="margin-top: 1.3em;">
       {% csrf_token %}
       {{ comment_form | crispy}}

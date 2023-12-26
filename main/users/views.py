@@ -1,8 +1,9 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from .forms import *
+from blog.models import Posts
 
 # Create your views here.
 def home(request):
@@ -66,25 +67,31 @@ def profile(request):
     return render(request, 'users/profile.html', context)
 
 def view_profile(request, id):
-    userprof = User.objects.get(pk=id)
+    userprof = User.objects.get(id=id)
+   
+
     context = {
-        'userprof': userprof
+        'userprof': userprof,
     }
 
     return render(request, 'users/view_profile.html', context)
 
+
 # views to display specific profiles details 
 # Not the best way, get better and come fix this.
-def profile_posts(request, id):
-    userprof = User.objects.get(pk=id)
+def profile_posts(request, user_id):
+    userprof = get_object_or_404(User, id=user_id)
+    my_posts = Posts.objects.filter(author=userprof)
+
     context = {
-        'userprof': userprof
+        'userprof': userprof,
+        'my_posts': my_posts,
     }
 
     return render(request, 'users/profile_posts.html', context)
 
 def profile_upvotes(request, id):
-    userprof = User.objects.get(pk=id)
+    userprof = get_object_or_404(User, id=id)
     context = {
         'userprof': userprof
     }
@@ -93,9 +100,14 @@ def profile_upvotes(request, id):
 
 
 def profile_downvotes(request, id):
-    userprof = User.objects.get(pk=id)
+    userprof = get_object_or_404(User, id=id)
     context = {
         'userprof': userprof
     }
 
     return render(request, 'users/profile_downvotes.html', context)
+
+def author_profile(request, user_id):
+    author = get_object_or_404(User, id=user_id)
+    my_posts = Posts.objects.filter(author=author)
+    return render(request, 'users/author_profile.html', {'author': author, 'my_posts': my_posts})
