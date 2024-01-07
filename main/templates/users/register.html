@@ -3,8 +3,9 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-<div class="p-4 col-md-5 m-auto">
+<div class="p-4 col-md-5 m-auto mt-4">
     <h3 class="fw-light">Create Account</h3>
+    <hr>
     <form action="{% url 'register'%}" method="POST">
         {% csrf_token %}
         {{ form | crispy }}

@@ -1,5 +1,5 @@
 .header {
-    background-image: url('../images/ch.jpeg');
+    background-image: url('../images/img.jpeg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 95vh;
@@ -14,6 +14,22 @@
 }
 
 .header .header-col-1 > h5 {
+    padding-left: 10%;
+    color: white;
+}
+
+#messages {
+    width: max-content !important;
+}
+
+.header .header-col-1>h2 {
+    padding: 10% 0 0 10%;
+    color: goldenrod;
+    text-transform: capitalize;
+    font-size: 40px;
+  }
+
+.header .header-col-1>h5 {
     padding-left: 10%;
     color: white;
 }

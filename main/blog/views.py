@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Posts, Comment
 from .forms import AddPostForm, CommentForm
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # Create your views here.
 # Listview for posts 
@@ -17,7 +19,7 @@ def post_list(request):
     }
     return render(request, 'blog/posts.html', context)
 
-
+@login_required()
 def add_posts(request):
     if request.method == 'POST':
         form = AddPostForm(request.POST, request.FILES)
@@ -25,10 +27,12 @@ def add_posts(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
+            messages.success(request, ('Poem added successfully.'))
             return redirect('posts')
         
         else:
-            raise ValueError('Invalid Form')
+            messages.success(request, ('An error occured!'))
+            return redirect('posts')
         
     else:
         form = AddPostForm()
@@ -66,13 +70,14 @@ def post_detail(request, id):
     }
     return render(request, template_name, context)
 
-
+@login_required()
 def upvote_post(request, id):
     post = get_object_or_404(Posts, id=id)
     post.upvotes += 1
     post.save()
     return redirect('posts')
 
+@login_required()
 def downvote_post(request, id):
     post = get_object_or_404(Posts, id=id)
     post.downvotes += 1
