@@ -1,4 +1,5 @@
 {% load static %}
+{% load crispy_forms_filters %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -82,11 +83,114 @@
     {% endfor %}
   {% endif %}
   {% block content %}
-  <div class="header row">
-    <div class="col header-col-1">
+  <div class="header p-3 align-self-end">
+    <div class="p-2 border border-2 border-white border-left-0 border-top-0 border-bottom-0">
       <h2>Poetry</h2>
-      <h5>©real_life_poetry</h5>
+      <h5 class="fw-light">The greatest tool to freedom lies deep within art and heart.</h5>
     </div>
+  </div>
+
+  <!-- about section  -->
+  <div class="about">
+    <div class="row p-5">
+      <div class="col col-md-4">
+        <img src="{% static 'images/lexica5.jpg'%}" alt="image" style="width: 100%; height: 100%;">
+      </div>
+      <div class="col">
+        <h2>About</h2>
+        <p>
+          First, we appreciate your decision to be part of us.
+          <strong>100 Pages</strong> is an all-poetry platform that seeks to get the most out of not just creative but unique artistic mind.
+          We're looking to build a platform where every poet can call it a home. 
+          Note that this new home is currently under active construction, and we let you in so you can provide with valuable feedback that can help us make it better.
+          We believe in you. That's why down the line we'll be introducing poetry competitions where you can pair with friends to write for real money.
+          It all starts today, and it starts with you!
+        </p>
+
+        <p>
+          At 100Pages, we believe in the power of poetry to transcend boundaries, to evoke empathy, and to connect souls. 
+          Our vision is to create a space where poets, both seasoned and emerging, can share their stories, reflections, and perspectives with the world. 
+          We aspire to be a haven for those who seek solace, inspiration, and a shared understanding through the beauty of language.
+          You can get started by signing up <a href="">here.</a> 
+          If you're already signed up and has some valuable feedback for us, head over to the <a href="">feedback section.</a>
+          For being part of this great journey, <strong> asante</strong>.
+        </p>
+      </div>
+    </div>
+    <!-- hero section  -->
+    <div class="bg-dark text-white text-center p-5">
+      <h3>
+        " Go out there and make the world your playground "
+      </h3><br>
+      <button class="btn btn-lg btn-primary">Get Started 🚀</button>
+    </div>
+
+    <!-- writing guidlines  -->
+    <div class="container">
+      <div class="text-center p-2">
+        <img src="{% static 'images/lexica1.jpg'%}" alt="image" style="height: 200px;">
+      </div>
+      <div>
+        <h2>Start Writing. Share Your Voice, Unleash Your Creativity.</h2>
+        <p>
+          At 100 Pages, we believe in the power of words and beauty of poetic expressions.
+          We invite you to become part of our vibrant community by contributing your unique writing to our platform.
+          Whether you're an established poet or a budding wordsmith, we welcome your creative and diverse perspectives.
+        </p><br>
+
+        <h2>Why Contribute ?</h2>
+        <p>
+          <strong>🔥 Amplify your voice:</strong><br>
+          1. Showcase your talent to a global audience passionate about creativity.<br>
+          2. Build your personal brand and connect with fellow poets and enthusiasts.<br><br>
+
+          <strong>🚀 Inspire Others:</strong><br>
+          1. Your words have the potential to inspire, provoke thought, and evoke emotions.<br>
+          2. Contribute to a space where creativity knows no bounds and imagination is celebrated.<br><br>
+
+          <strong>📚 Community Engagement:</strong><br>
+          1. Join a community of like-minded individuals who appreciate the power of language.<br>
+          2. Receive constructive feedback and encouragement to enhance your craft.<br><br>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Feedback  -->
+  <div class="container py-3">
+    <p class="small fw-light"> We value your feedback!</p>
+    <form action="" method="post">
+      {% csrf_token%}
+      <h2>Feedback Form</h2>
+      {{form | crispy}}
+      <button type="submit" class="btn btn-primary" onclick="feedbackForm()">Submit Feedback</button>
+    </form>
+  </div>
+  <!-- Footer  -->
+  <footer>
+    <div class="row text-right h-50 bg-dark text-white p-3">
+      <div class="col col-md-8 p-md-3">
+        <h3 style="color: goldenrod;">100 Pages</h3>
+        <p>
+          Join us in creating a tapestry of words that reflects the beauty, pain, and complexity of the human experience. 
+          Your contribution matters, and we can't wait to explore the realms of your creativity.
+          Start sharing your poetry today and be a part of something truly extraordinary. 
+          Together, let's make 100Pages a vibrant tapestry of poetic expression!
+        </p>
+      </div>
+      <div class="col py-md-3">
+        <ul>
+          <li><a class="text-decoration-none text-white" href="">Home</a></li>
+          <li><a href="" class="text-decoration-none text-white">Updates</a></li>
+          <li><a href="" class="text-decoration-none text-white">Feedback</a></li>
+          <li><a href="" class="text-decoration-none text-white">Get Started</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <div class="row bg-dark text-center p-3 text-white">
+    <h3 class="fw-lighter small">With 💙 from <a href="#" class="text-decoration-none">100Pages</a></h3>
   </div>
   {% endblock %}
   <!--  Script tags -->

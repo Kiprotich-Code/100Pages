@@ -15,3 +15,7 @@ function showSection(sectionId) {
     selectedSection.style.display = 'block';
   }
 }
+
+function feedbackForm() {
+  alert("Thank you for giving us your feedback! We are glad to have you here!")
+}

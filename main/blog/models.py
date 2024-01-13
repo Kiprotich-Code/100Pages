@@ -36,14 +36,12 @@ class Comment(models.Model):
         return 'Comment {} by {}'.format(self.body, self.commenter)
 
 
-# class Upvote(models.Model):
-#     post = models.ForeignKey(Posts, on_delete=models.CASCADE, related_name='upvotes')
-#     upvoter = models.ForeignKey(User, on_delete=models.CASCADE)
-#     created_on = models.DateTimeField(auto_now_add=True)
-#     active = models.BooleanField(default=True)
+# Temporary model to check for users feedback 
+class UserFeedback(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField(blank=True)
+    subject = models.CharField(max_length=150)
+    message = models.TextField()
 
-#     class Meta:
-#         ordering = ['created_on']
-
-#     def __str__(self):
-#         return self.upvoter
+    def __str__(self):
+        return f'Feedback from {self.name}'
