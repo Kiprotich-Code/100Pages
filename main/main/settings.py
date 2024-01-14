@@ -2,15 +2,14 @@ from pathlib import Path
 import os
 from django.conf import settings
 from django.conf.urls.static import static
-from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-load_dotenv()
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = 'django-insecure-n5j8^%kr5%oej296t1fqat6qhavwx-ar-6y2ij2#wo*^81(i=n'
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -69,10 +68,10 @@ WSGI_APPLICATION = 'main.wsgi.application'
 DATABASES = {
    'default': {
        'ENGINE': 'django.db.backends.postgresql',
-       'NAME': os.getenv('DB_NAME'),
-       'USER': os.getenv('DB_USER'),
-       'PASSWORD': os.getenv('DB_PASSWORD'),
-       'HOST': os.getenv('HOST'),
+       'NAME': 'postgres',
+       'USER': 'postgres',
+       'PASSWORD': 'LaPX8D~Zcyg%HwJ',
+       'HOST': 'db.ccaakovoqsprabppxnju.supabase.co',
        'PORT': 5432,
    }
 }
