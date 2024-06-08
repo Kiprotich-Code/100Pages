@@ -1,19 +1,30 @@
 {% extends '../index.html'%}
+{% load static %}
 
 {% block content %}
-<form method="POST">
-    {% csrf_token %}
-    <div class="col-md-6 m-auto p-sm-3 p-2">
-        <h2>Login</h2>
-        <div class="mb-3">
-            <label for="username" class="form-label">Username: </label>
-            <input type="text" class="form-control" name="username">
+<div class="p-sm-5 mt-5">
+    <div class="row p-5 border rounded">
+        <div class="col-12 col-md-6">
+            <img src="{% static 'images/lg.jpg'%}" alt="" style="width: 100%;">
         </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Password: </label>
-            <input type="password" class="form-control" name="password">
+        <div class="col col-md-6">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="col-md-6 m-auto p-sm-3 p-2">
+                    <h2>Login</h2>
+                    <hr>
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username: </label>
+                        <input type="text" class="form-control" name="username">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password: </label>
+                        <input type="password" class="form-control" name="password">
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary">Login</button>
+                </div>
+            </form>
         </div>
-        <button type="submit" class="btn btn-primary">Login</button>
     </div>
-</form>
+</div>
 {% endblock %}

@@ -145,3 +145,29 @@ MEDIA_ROOT = BASE_DIR / 'media/'
 # Crispy 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
+
+SUMMERNOTE_THEME = 'bs5'  
+
+SUMMERNOTE_CONFIG = {
+    'iframe': False,  # Use inline mode instead of iframe
+    'summernote': {
+        'toolbar': [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear']],
+            ['fontname', ['fontname']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'codeview', 'help']],
+        ],
+        'width': '100%',
+        'height': '400',
+    },
+    'attachment_require_authentication': True,
+    'summernote_iframe': {
+        'width': '100%',  # Change width to 100%
+        'height': '400',
+        'style': 'border: 1px solid #ced4da; border-radius: .375rem;',  # Bootstrap 5 style
+    }
+}

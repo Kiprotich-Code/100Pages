@@ -3,46 +3,48 @@
 
 {% block content %}
 {% if posts %}
-<div class="row">
-<div class="col-md-8">
-{% for post in posts %}
-<div class="card m-3 border shadow-none">
-    <!-- <img src="{% static 'images/img.jpeg'%}" class="card-img-top" alt="image" style="height: 200px; margin: 5px auto;"> -->
+<div class="row p-md-5 mt-5">
+  <div class="col-md-8">
+    {% for post in posts %}
+    <div class="card m-3 border shadow-none">
+      <!-- <img src="{% static 'images/img.jpeg'%}" class="card-img-top" alt="image" style="height: 200px; margin: 5px auto;"> -->
+      <div class="card-body">
+        <h5 class="card-title">{{post.title}} </h5>
+        <p class="small fw-lighter">By <a
+            href="{% url 'author_profile' user_id=post.author.id%}">{{post.author.profile.stage_name}}</a> </p>
+        <hr>
+        <a href="{% url 'post_detail' post.id%}" class="btn btn-outline-primary">Recite Poem</a>
+        {% if user.is_authenticated %}
+        <a href="{% url 'upvote_post' post.id%}" class="btn btn-outline-success">
+          {{post.upvotes}} <i class="bi bi-arrow-bar-up"></i>
+        </a>
+        <a href="{% url 'downvote_post' post.id%}" class="btn btn-outline-warning">
+          {{post.downvotes}} <i class="bi bi-arrow-bar-down"></i>
+        </a>
+        {% else %}
+        <a href="{% url 'login' %}" class="btn btn-outline-success">
+          {{post.upvotes}} <i class="bi bi-arrow-bar-up"></i>
+        </a>
+        <a href="{% url 'login' %}" class="btn btn-outline-warning">
+          {{post.downvotes}} <i class="bi bi-arrow-bar-down"></i>
+        </a>
+        {% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% block sidebar %} {% include './sidebar.html' %} {% endblock sidebar %}
+
+
+  {% else %}
+  <div class="card m-3 border-warning">
+    <h5 class="card-header">Warning ! </h5>
     <div class="card-body">
-      <h5 class="card-title">{{post.title}} </h5>
-      <p class="small fw-lighter">By <a href="{% url 'author_profile' user_id=post.author.id%}">{{post.author.profile.stage_name}}</a> </p>
-      <hr>
-      <a href="{% url 'post_detail' post.id%}" class="btn btn-outline-primary">Recite Poem</a>
-      {% if user.is_authenticated %}
-      <a href="{% url 'upvote_post' post.id%}" class="btn btn-outline-success">
-        {{post.upvotes}} <i class="bi bi-arrow-bar-up"></i>
-      </a>
-      <a href="{% url 'downvote_post' post.id%}" class="btn btn-outline-warning">
-        {{post.downvotes}} <i class="bi bi-arrow-bar-down"></i>
-      </a>
-      {% else %}
-      <a href="{% url 'login' %}" class="btn btn-outline-success">
-        {{post.upvotes}} <i class="bi bi-arrow-bar-up"></i>
-      </a>
-      <a href="{% url 'login' %}" class="btn btn-outline-warning">
-        {{post.downvotes}} <i class="bi bi-arrow-bar-down"></i>
-      </a>
-      {% endif %}
+      <p class="card-text"> There are no posts at the moment. If you have admin access, you can login and write
+        something great to cheer us up. If you're not an admin, kindly check back later. In the meantime, contact us via
+        the contact form so we can share the moment. </p>
+      <a href="#" class="btn btn-outline-warning">Contact Us</a>
     </div>
   </div>
-{% endfor %}
-</div>
-{% block sidebar %} {% include './sidebar.html' %} {% endblock sidebar %}
-
-
-{% else %}
-<div class="card m-3 border-warning">
-  <h5 class="card-header">Warning ! </h5>
-<div class="card-body">
-  <p class="card-text"> There are no posts at the moment. If you have admin access, you can login and write something great to cheer us up. If you're not an admin, kindly check back later. In the meantime, contact us via the contact form so we can share the moment. </p>
-  <a href="#"
-     class="btn btn-outline-warning">Contact Us</a>
-</div>
-</div>
-{% endif %}
-{% endblock %}
+  {% endif %}
+  {% endblock %}

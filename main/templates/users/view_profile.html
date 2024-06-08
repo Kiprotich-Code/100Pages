@@ -1,42 +1,24 @@
 {% extends '../index.html'%}
-
 {% block content %}
-{% block profile_header %}
-<div class="content-section col-md-8 m-auto">
-  <div class="media text-center">
-    <img class="rounded-circle account-img p-2 m-2" src="{{ user.profile.dp.url }}" />
-    <div class="media-body">
+<div class="p-md-5 mt-5">
+  {% block profile_header %}
+  <div class="container border rounded">
+    <div class="col-md-8 p-3">
+      <img class="rounded-circle account-img p-2 m-2" src="{{ user.profile.dp.url }}" />
       <h2 class="account-heading"> {{ user.profile.stage_name }}</h2>
       <p class="text-secondary">@{{user.username}} </p>
-      <p class="text-secondary">500 Followers | 250 Following | Joined: 12-09-2023</p>
-    </div>
-    <div>
-      <ul class="nav justify-content-around overflow-hidden">
-        <li class="nav-item">
-          <a class="nav-link text-dark" aria-current="page" href="{% url 'view_profile' user.id %}">Info</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="{% url 'profile_posts' user.id %}">Posts</a>
-        </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link text-dark" href="{% url 'profile_upvotes' user.id %}">Upvotes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="{% url 'profile_downvotes' user.id%}">Downvotes</a>
-        </li> -->
-      </ul>
+      <p class="small">500 Followers | 250 Following | Joined: 12-09-2023</p>
       <hr>
+      {% endblock %}
+      {% block info %}
+      <div id="info" class="section-content">
+        <h2 class="small fw-light">Personal Info</h2>
+        <p class="card-text">{{user.profile.bio}}</p>
+
+        <a href="{% url 'profile'%}" class="btn btn-primary btn-sm">Update Profile</a>
+      </div>
+      {% endblock %}
     </div>
   </div>
-  {% endblock %}
-
-  {% block info %}
-  <div id="info" class="section-content">
-    <h2 class="small fw-light">Personal Info</h2>
-    <p class="card-text">{{user.profile.bio}}</p>
-
-    <a href="{% url 'profile'%}" class="btn btn-primary my-3">Update Profile</a>
-  </div>
-  {% endblock %}
 </div>
 {% endblock %}

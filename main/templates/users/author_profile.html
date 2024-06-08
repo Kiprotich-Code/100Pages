@@ -3,74 +3,55 @@
 {% block content %}
 {% if author %}
 {% block profile_header %}
-<div class="content-section col-md-8 m-auto">
-  <div class="media text-center">
-    <img class="rounded-circle account-img p-2 m-2" src="{{ author.profile.dp.url }}" />
-    <div class="media-body">
-      <h2 class="account-heading"> {{ author.profile.stage_name }}</h2>
-      <p class="text-secondary">@{{author.username}} </p>
-
-      <span class="d-flex gap-3 justify-content-around bg-dark p-2">
-        <p class="text-secondary">{{ author.profile.followers.count }} Followers | {{ author.profile.followers.count }} Following | Joined: 12-09-2023</p>
-        <a href="#" class="text-decoration-none btn btn-outline-primary">Unfollow</a>
-        <a href="#" class="text-decoration-none btn btn-outline-primary">Follow</a>
-      </span>
-    </div>
-    <div>
-      <ul class="nav justify-content-around overflow-hidden">
-        <li class="nav-item">
-          <a class="nav-link text-dark" aria-current="page" href="">Info</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="#posts">Posts</a>
-        </li>
-        <!-- <li class="nav-item">
-          <a class="nav-link text-dark" href="{% url 'profile_upvotes' author.id %}">Upvotes</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-dark" href="{% url 'profile_downvotes' author.id%}">Downvotes</a> -->
-        </li>
-      </ul>
-      <hr>
-    </div>
-  </div>
-  {% endblock %}
-
-  {% block info %}
-  <div id="info" class="section-content">
-    <h2 class="small fw-light">Personal Info</h2>
-    <p class="card-text">{{author.profile.bio}}</p>
-  </div>
-
-  <div id="posts">
-    <h3 class="small fw-light mt-3">Posts</h3>
-    {% if my_posts %}
-    {% for post in my_posts %}
-    <div class="card my-3 border-warning w-100">
-      <div class="card-body">
-        <h5 class="card-title">{{post.title}} </h5>
-        <p class="card-title fw-light">By {{post.author}} </p>
-        <hr>
-        <a href="{% url 'post_detail' post.id%}" class="btn btn-outline-primary">Recite Poem</a>
+<div class="p-md-5 mt-5">
+  <div class="container border rounded">
+    <div class="col-md-8 p-3">
+      <img class="rounded-circle account-img p-2 m-2" src="{{ author.profile.dp.url }}" />
+      <div class="media-body">
+        <h2 class="account-heading"> {{ author.profile.stage_name }}</h2>
+        <p class="text-secondary">@{{author.username}} </p>
       </div>
-    </div>
-    {% endfor %}
-
-
-    {% else %}
-    <div class="card m-3 border-warning">
-      <h5 class="card-header">Warning ! </h5>
-      <div class="card-body">
-        <p class="card-text"> There are no posts at the moment. If you have admin access, you can login and write
-          something great to cheer us up. If you're not an admin, kindly check back later. In the meantime, contact us
-          via the contact form so we can share the moment. </p>
-        <a href="#" class="btn btn-outline-warning">Contact Us</a>
-      </div>
-      {% endif %}
     </div>
     {% endblock %}
-    {% else %}
-    <h3>You can't view author</h3>
-    {% endif %}
-  </div>
-  {% endblock %}
+
+    {% block info %}
+    <div class="p-3">
+      <div id="info" class="section-content">
+        <h2 class="small fw-light text-primary"># Personal Info</h2>
+        <p class="card-text">{{author.profile.bio}}</p>
+      </div>
+
+      <div id="posts">
+        <h3 class="small fw-light text-primary mt-3"># Posts</h3>
+        {% if my_posts %}
+        {% for post in my_posts %}
+        <div class="card my-3 w-100">
+          <div class="card-body">
+            <h5 class="card-title">{{post.title}} </h5>
+            <p class="card-title fw-light">By {{post.author}} </p>
+            <hr>
+            <a href="{% url 'post_detail' post.id%}" class="btn btn-outline-primary">Recite Poem</a>
+          </div>
+        </div>
+        {% endfor %}
+
+
+        {% else %}
+        <div class="card m-3">
+          <h5 class="card-header">Warning ! </h5>
+          <div class="card-body">
+            <p class="card-text"> There are no posts at the moment. If you have admin access, you can login and write
+              something great to cheer us up. If you're not an admin, kindly check back later. In the meantime, contact
+              us
+              via the contact form so we can share the moment. </p>
+            <a href="#" class="btn btn-outline-warning">Contact Us</a>
+          </div>
+          {% endif %}
+        </div>
+        {% endblock %}
+        {% else %}
+        <h3>You can't view author</h3>
+        {% endif %}
+      </div>
+    </div>
+    {% endblock %}

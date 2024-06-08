@@ -1,8 +1,13 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 .header {
     background-image: url('../images/lexica7.jpg');
     background-size: cover;
     background-repeat: no-repeat;
-    height: 95vh;
+    height: 100vh;
     background-position: top;
 }
 
@@ -12,6 +17,10 @@
 
 ul {
     list-style: none !important;
+}
+
+.note-editor {
+    width: 100%;
 }
 
 /* .header .header-col-1>h2 {
