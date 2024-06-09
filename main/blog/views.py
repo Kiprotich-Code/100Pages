@@ -22,7 +22,7 @@ def post_list(request):
 @login_required()
 def add_posts(request):
     if request.method == 'POST':
-        form = AddPostForm(request.POST, request.FILES)
+        form = AddPostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user

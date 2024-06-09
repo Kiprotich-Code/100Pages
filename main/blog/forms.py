@@ -10,7 +10,7 @@ class AddPostForm(forms.ModelForm):
     post = forms.CharField(widget=SummernoteWidget())
     class Meta:
         model = Posts
-        fields = ('title', 'avatar', 'post',)
+        fields = ('title', 'post',)
 
     def __init__(self, *args, **kwargs):
         super(AddPostForm, self).__init__(*args, **kwargs)
@@ -18,7 +18,7 @@ class AddPostForm(forms.ModelForm):
         self.helper = FormHelper(self)
         self.helper.layout = Layout(
             Row(
-                Column('title', 'avatar', css_class='col-md-4'),
+                Column('title', css_class='col-md-4'),
                 Column('post', css_class='col-md-8'),
             ),
             Submit('submit', u'Add Poem', css_class='btn btn-primary'),
