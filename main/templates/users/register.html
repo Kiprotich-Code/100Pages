@@ -15,7 +15,7 @@
             <form action="{% url 'register'%}" method="POST">
                 {% csrf_token %}
                 {{ form | crispy }}
-                <input type="submit" name="Register" value="Register" class="btn btn-outline-primary">
+                <input type="submit" name="register" value="Register" class="btn btn-outline-primary">
             </form>
         </div>
     </div>
