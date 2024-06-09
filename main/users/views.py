@@ -8,6 +8,10 @@ from django.contrib import messages
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from blog.forms import FeedbackForm
+import logging
+
+# Set up logging
+logger = logging.getLogger(__name__)
 
 # Create your views here.
 def home(request):
@@ -65,29 +69,28 @@ def register_user(request):
 @login_required()
 def profile(request):
     if request.method == 'POST':
-        u_form = UserUpdateForm(request.POST, instance=request.user)
-        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
-
-        if u_form.is_valid() and p_form.is_valid():
-            messages.success(request, ('Successfully updated profile!'))
-            u_form.save()
-            p_form.save()
-
-            return redirect('posts')
+        form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
         
+        if form.is_valid():
+            try:
+                form.save()
+                messages.success(request, 'Successfully updated profile!')
+                return redirect('posts')
+            except Exception as e:
+                logger.error(f"Error updating profile: {e}")
+                messages.error(request, 'There was an error updating your profile. Please try again later.')
         else:
-            return redirect('posts')
-        
+            messages.error(request, 'There were issues with the form submission. Please correct the errors and try again.')
+    
     else:
-        u_form = UserUpdateForm(instance=request.user)
-        p_form = ProfileUpdateForm(instance=request.user.profile)
+        form = ProfileUpdateForm(instance=request.user.profile)
 
     context = {
-        'u_form': u_form,
-        'p_form': p_form,
+        'form': form,
     }
 
     return render(request, 'users/profile.html', context)
+
 
 
 @login_required()
