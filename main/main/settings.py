@@ -76,11 +76,11 @@ WSGI_APPLICATION = 'main.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'RdCczORVVjcoimHQukivRWroKvgylSSR',
-        'HOST': 'monorail.proxy.rlwy.net',
-        'PORT': '45272',
+        'NAME': 'railway',       
+        'USER': 'postgres',  
+        'PASSWORD': 'IjojYNbmEjHtKofTguRTxmyhqPiRjrnl',  
+        'HOST': 'roundhouse.proxy.rlwy.net',  # Host address
+        'PORT': '34812',  # Port number
     }
 }
 
