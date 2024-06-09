@@ -1,14 +1,19 @@
+import os
 from django.utils import timezone
 from django.db import models
 from django.contrib.auth.models import User
 
 
 # Create your models here.
+def user_directory_path(instance, filename):
+    # file will be uploaded to MEDIA_ROOT/profile_pics/<user_id>/<filename>
+    return os.path.join('profile_pics', str(instance.author.id), filename)
+
 class Posts(models.Model):
     title = models.CharField(max_length=100)
     subtitle = models.CharField(max_length=100)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    avatar = models.ImageField(default='default.jpeg', upload_to='profile_pics/')
+    avatar = models.ImageField(default='default.jpeg', upload_to=user_directory_path)
     post = models.TextField()
     created_on = models.DateTimeField(auto_now=True)
     updated_on = models.DateTimeField(auto_now=True)
