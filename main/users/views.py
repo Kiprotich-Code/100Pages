@@ -75,6 +75,9 @@ def profile(request):
 
             return redirect('posts')
         
+        else:
+            return redirect('posts')
+        
     else:
         u_form = UserUpdateForm(instance=request.user)
         p_form = ProfileUpdateForm(instance=request.user.profile)
