@@ -34,3 +34,14 @@ ul {
     padding-left: 10%;
     color: white;
 } */
+
+/* SUMMERNOTE CONFIG  */
+.note-editor .note-editable p {
+    margin-bottom: 0.5em; /* Adjust the margin as needed */
+    line-height: 1.2; /* Adjust the line height as needed */
+}
+
+.content p {
+    margin-bottom: 0.5em; /* Match these values with the editor CSS */
+    line-height: 1.2; /* Match these values with the editor CSS */
+}

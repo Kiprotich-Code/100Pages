@@ -44,6 +44,8 @@ def add_posts(request):
 # Detail view for post 
 def post_detail(request, id):
     template_name = 'blog/post_detail.html'
+    latest_post = Posts.objects.order_by('-created_on')[0:3]
+    trending_post = Posts.objects.order_by('-upvotes', 'downvotes')[0:3]
     post = get_object_or_404(Posts, id=id)
     comments = post.comments.filter(active=True)
     users = User.objects.all()
@@ -67,6 +69,8 @@ def post_detail(request, id):
         'comments': comments,
         'new_comment': new_comment,
         'comment_form':comment_form, 
+        'latest_post' :latest_post,
+        'trending_post' :trending_post,
     }
     return render(request, template_name, context)
 

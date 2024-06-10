@@ -142,25 +142,21 @@ CRISPY_TEMPLATE_PACK = 'bootstrap5'
 SUMMERNOTE_THEME = 'bs5'  
 
 SUMMERNOTE_CONFIG = {
-    'iframe': False,  # Use inline mode instead of iframe
-    'summernote': {
-        'toolbar': [
-            ['style', ['style']],
-            ['font', ['bold', 'underline', 'clear']],
-            ['fontname', ['fontname']],
-            ['color', ['color']],
-            ['para', ['ul', 'ol', 'paragraph']],
-            ['table', ['table']],
-            ['insert', ['link', 'picture', 'video']],
-            ['view', ['fullscreen', 'codeview', 'help']],
-        ],
-        'width': '100%',
-        'height': '400',
+    'toolbar': [
+        ['style', ['style']],
+        ['font', ['strikethrough', 'superscript', 'subscript']],
+        ['fontsize', ['fontsize']],
+        ['color', ['color']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['height', ['height']],
+    ],
+    'css': (
+        '//cdnjs.cloudflare.com/ajax/libs/codemirror/5.29.0/theme/monokai.min.css',
+        'css/index.css',  # Ensure the correct path to your custom CSS file
+    ),
+    'codemirror': {
+        'mode': 'htmlmixed',
+        'lineNumbers': 'true',
+        'theme': 'monokai',
     },
-    'attachment_require_authentication': True,
-    'summernote_iframe': {
-        'width': '100%',  # Change width to 100%
-        'height': '400',
-        'style': 'border: 1px solid #ced4da; border-radius: .375rem;',  # Bootstrap 5 style
-    }
 }

@@ -7,7 +7,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>100 Pages</title>
+  <title>100 Poets</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
@@ -17,7 +17,9 @@
 <body>
   <nav class="navbar navbar-expand-lg p-sm-3 fixed-top bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'home'%}">100Pages</a>
+      <a class="navbar-brand" href="{% url 'posts'%}">
+        <img src="{% static 'images/img.png'%}" alt="" style="width: 100px;">
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -25,10 +27,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="{% url 'home'%}">Home</a>
+            <a class="nav-link active" aria-current="page" href="{% url 'posts'%}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'posts'%}">Updates</a>
+            <a class="nav-link" href="{% url 'home'%}">About</a>
           </li>
           </li>
           <li class="nav-item dropdown">
@@ -100,7 +102,7 @@
         <hr>
         <p class="fw-light">
           First, we appreciate your decision to be part of us.
-          <strong>100 Pages</strong> is an all-poetry platform that seeks to get the most out of not just creative but
+          <strong>100 Poets</strong> is an all-poetry platform that seeks to get the most out of not just creative but
           unique artistic mind.
           We're looking to build a platform where every poet can call it a home.
           Note that this new home is currently under active construction, and we let you in so you can provide with
@@ -111,7 +113,7 @@
         </p>
 
         <p class="fw-light">
-          At 100Pages, we believe in the power of poetry to transcend boundaries, to evoke empathy, and to connect
+          At 100Poets, we believe in the power of poetry to transcend boundaries, to evoke empathy, and to connect
           souls.
           Our vision is to create a space where poets, both seasoned and emerging, can share their stories, reflections,
           and perspectives with the world.
@@ -142,7 +144,7 @@
       <div class="col col-12 col-md-6 pt-5">
         <h2>Start Writing. Share Your Voice, Unleash Your Creativity.</h2>
         <h5 class="fw-light">
-          At 100 Pages, we believe in the power of words and beauty of poetic expressions.
+          At 100 Poets, we believe in the power of words and beauty of poetic expressions.
           We invite you to become part of our vibrant community by contributing your unique writing to our platform.
           Whether you're an established poet or a budding wordsmith, we welcome your creative and diverse perspectives.
         </h5><br>
@@ -200,10 +202,12 @@
       <div class="container p-5">
         <div class="row">
           <div class="col col-12 col-md-8">
-            <h3 class="text-primary">100Pages</h3>
+            <h3 class="text-primary">
+              <img src="{% static 'images/img.png'%}" alt="" style="width: 200px;">
+            </h3>
             <p>
               Start sharing your poetry today and be a part of something truly extraordinary.
-              Together, let's make 100Pages a vibrant tapestry of poetic expression!
+              Together, let's make 100Poets a vibrant tapestry of poetic expression!
             </p>
           </div>
           <div class="col py-md-3">
@@ -220,7 +224,7 @@
   </footer>
 
   <div class="row bg-dark text-center p-md-3 text-white">
-    <h3 class="fw-lighter small">With 💙 from <a href="#" class="text-decoration-none">100Pages</a></h3>
+    <h3 class="fw-lighter small">With 💙 from <a href="#" class="text-decoration-none">100Poets</a></h3>
   </div>
   {% endblock %}
   <!--  Script tags -->
