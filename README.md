@@ -1,5 +1,4 @@
 # 100Pages
 Blog application using Django.
 
-# Homepage
-![Alt text](image.png)
+Demo hosted on: https://100-pages.vercel.app/blog/posts/
